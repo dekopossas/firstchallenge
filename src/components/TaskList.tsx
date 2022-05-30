@@ -24,7 +24,7 @@ export function TaskList() {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
     const currentTask = tasks.find((task) => task.id === id);
     const currentArr = tasks.filter((task) => task.id !== id);
-    currentArr.push({ id: currentTask?.id, title: currentTask?.title, isComplete: true });
+    currentArr.push({ id: currentTask?.id, title: currentTask?.title, isComplete: !currentTask?.isComplete });
     // currentTask?.isComplete = true
     setTasks(currentArr);
     console.log(currentTask?.isComplete);

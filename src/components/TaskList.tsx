@@ -25,14 +25,13 @@ export function TaskList() {
     const currentTask = tasks.find((task) => task.id === id);
     const currentArr = tasks.filter((task) => task.id !== id);
     currentArr.push({ id: currentTask?.id, title: currentTask?.title, isComplete: !currentTask?.isComplete });
-    // currentTask?.isComplete = true
     setTasks(currentArr);
-    console.log(currentTask?.isComplete);
   }
 
   function handleRemoveTask(id: number | undefined) {
     // Remova uma task da listagem pelo ID
-    console.log(tasks);
+    const currentArr = tasks.filter((task) => task.id !== id);
+    setTasks(currentArr);
   }
 
   return (

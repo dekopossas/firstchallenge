@@ -42,7 +42,7 @@ export function TaskList() {
     setTasks(tasksEdited);
   }
 
-  function handleRemoveTask(id: number | undefined) {
+  function handleRemoveTask(id: number) {
     // Remova uma task da listagem pelo ID
     const currentArr = tasks.filter((task) => task.id !== id);
     setTasks(currentArr);

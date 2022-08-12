@@ -67,7 +67,22 @@ export function TaskList() {
       </header>
 
       <main>
-        <ul>
+        <table>
+        <tr>
+          <th>estudantes integrados</th>
+          <th>meta de estudantes</th>
+          <th>estudantes ativos</th>
+          <th>aumento de semana anterior</th>
+          <th>curriculos do futuro</th>
+          <th>empresas aguardando aceite</th>
+          <th>convites aceitos</th>
+          <th>total de novas conexões</th>
+          <th>associações</th>
+          <th>extracurriculares</th>
+          <th>vagas</th>
+          <th>trabalhabilidade</th>
+          <th>candidaturas</th>
+        </tr>
           {tasks.map((task) => (
             <li key={task.id}>
               <div className={task.isComplete ? 'completed' : ''} data-testid="task">
@@ -92,7 +107,7 @@ export function TaskList() {
               </button>
             </li>
           ))}
-        </ul>
+        </table>
       </main>
     </section>
   );

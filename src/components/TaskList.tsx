@@ -68,45 +68,36 @@ export function TaskList() {
 
       <main>
         <table>
-        <tr>
-          <th>estudantes integrados</th>
-          <th>meta de estudantes</th>
-          <th>estudantes ativos</th>
-          <th>aumento de semana anterior</th>
-          <th>curriculos do futuro</th>
-          <th>empresas aguardando aceite</th>
-          <th>convites aceitos</th>
-          <th>total de novas conexões</th>
-          <th>associações</th>
-          <th>extracurriculares</th>
-          <th>vagas</th>
-          <th>trabalhabilidade</th>
-          <th>candidaturas</th>
-        </tr>
-          {tasks.map((task) => (
-            <li key={task.id}>
-              <div className={task.isComplete ? 'completed' : ''} data-testid="task">
-                <label className="checkbox-container">
-                  <input
-                    type="checkbox"
-                    readOnly
-                    checked={task.isComplete}
-                    onClick={() => handleToggleTaskCompletion(task.id)}
-                  />
-                  <span className="checkmark"></span>
-                </label>
-                <p>{task.title}</p>
-              </div>
-
-              <button
-                type="button"
-                data-testid="remove-task-button"
-                onClick={() => handleRemoveTask(task.id)}
-              >
-                <FiTrash size={16} />
-              </button>
-            </li>
-          ))}
+          <tr>
+            <th>Instituição</th>
+            <th>Integrados</th>
+            <th>Ativos</th>
+            <th>Curriculos</th>
+            <th>Aguardando</th>
+            <th>Aceitos</th>
+            <th>Extracurriculares</th>
+            <th>Vagas</th>
+            <th>Trabalhabilidade</th>
+            <th>Candidaturas</th>
+            <th>Actions</th>
+          </tr>
+          <tr>
+            <td>UVA</td>
+            <td>12345125</td>
+            <td>123</td>
+            <td>432</td>
+            <td>151</td>
+            <td>6123</td>
+            <td>43</td>
+            <td>12</td>
+            <td>4321</td>
+            <td>43</td>
+            <td>
+              <button> \/ </button>
+              <button> X </button>
+              <button> /\ </button>
+            </td>
+          </tr>
         </table>
       </main>
     </section>

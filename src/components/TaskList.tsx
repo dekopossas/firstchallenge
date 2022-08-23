@@ -4,49 +4,43 @@ import '../styles/tasklist.scss';
 
 import { FiTrash, FiCheckSquare } from 'react-icons/fi';
 
-interface Task {
+interface Line {
   id: number;
-  title: string;
-  isComplete: boolean;
+  name: string;
+  integrated: string;
+  actived: string;
+  curriculum: string;
+  waiting: string;
+  accepted: string;
+  extracurriculars: string;
+  vacant: string;
+  workability: string;
+  candidacy: string;
 }
 
 export function TaskList() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [lines, setLines] = useState<Line[]>([]);
   const [institutName, setInstitutName] = useState('');
   const [institutJson, setInstitutJson] = useState('');
   const [trabalhabilit, setTrabalhabilit] = useState('');
   const [institutSeed, setInstitutSeed] = useState('');
 
-  function handleCreateNewTask() {
+  function handleCreateNew() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
-    const newTask = {
-      id: Math.random(),
-      title: newTaskTitle,
+    const newLine = {
+      id: lines.length + 1,
+      // title: newTaskTitle,
       isComplete: false,
     };
 
-    setTasks((oldState) => [...oldState, newTask]);
-    setNewTaskTitle('');
-  }
-
-  function handleToggleTaskCompletion(id: number) {
-    // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
-    const tasksEdited = tasks.map((task) =>
-      task.id === id
-        ? {
-            ...task,
-            isComplete: !task.isComplete,
-          }
-        : task,
-    );
-
-    setTasks(tasksEdited);
+    // setTasks((oldState) => [...oldState, newTask]);
+    // setNewTaskTitle('');
   }
 
   function handleRemoveTask(id: number) {
     // Remova uma task da listagem pelo ID
-    const currentArr = tasks.filter((task) => task.id !== id);
-    setTasks(currentArr);
+    const currentArr = lines.filter((line) => line.id !== id);
+    setLines(currentArr);
   }
 
   return (
@@ -82,7 +76,7 @@ export function TaskList() {
             onChange={(e) => setInstitutSeed(e.target.value)}
             value={institutSeed}
           />
-          <button type="submit" data-testid="add-task-button" onClick={handleCreateNewTask}>
+          <button type="submit" data-testid="add-task-button" onClick={handleCreateNew}>
             <FiCheckSquare size={16} color="#fff" />
           </button>
         </div>

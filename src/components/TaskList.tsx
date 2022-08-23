@@ -22,15 +22,23 @@ export function TaskList() {
   const [lines, setLines] = useState<Line[]>([]);
   const [institutName, setInstitutName] = useState('');
   const [institutJson, setInstitutJson] = useState('');
-  const [trabalhabilit, setTrabalhabilit] = useState('');
+  const [workabilityInput, setWorkabilityInput] = useState('');
   const [institutSeed, setInstitutSeed] = useState('');
 
   function handleCreateNew() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
     const newLine = {
       id: lines.length + 1,
-      // title: newTaskTitle,
-      isComplete: false,
+      name: institutName,
+      integrated: "",
+      actived: "",
+      curriculum: "",
+      waiting: "",
+      accepted: "",
+      extracurriculars: "",
+      vacant: "",
+      workability: workabilityInput,
+      candidacy: "",
     };
 
     // setTasks((oldState) => [...oldState, newTask]);
@@ -66,8 +74,8 @@ export function TaskList() {
               style={{ width: '120px' }}
               type="text"
               placeholder="Trabalhabilidade"
-              onChange={(e) => setTrabalhabilit(e.target.value)}
-              value={trabalhabilit}
+              onChange={(e) => setWorkabilityInput(e.target.value)}
+              value={workabilityInput}
             />
           <input
             style={{ width: '100px' }}

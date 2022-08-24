@@ -47,8 +47,11 @@ export function TaskList() {
       candidacy: institutSeed,
     };
 
-    // setTasks((oldState) => [...oldState, newTask]);
-    // setNewTaskTitle('');
+    setLines((oldState) => [...oldState, newLine]);
+    setInstitutName('');
+    setInstitutJson('');
+    setWorkabilityInput('');
+    setInstitutSeed('');
   }
 
   function handleRemoveTask(id: number) {

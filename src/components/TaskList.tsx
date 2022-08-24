@@ -22,23 +22,29 @@ export function TaskList() {
   const [lines, setLines] = useState<Line[]>([]);
   const [institutName, setInstitutName] = useState('');
   const [institutJson, setInstitutJson] = useState('');
-  const [workabilityInput, setWorkabilityInput] = useState('');
-  const [institutSeed, setInstitutSeed] = useState('');
+  const [workabilityInput, setWorkabilityInput] = useState('0');
+  const [institutSeed, setInstitutSeed] = useState('0');
 
   function handleCreateNew() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
+    const data = JSON.parse(institutJson);
+
     const newLine = {
       id: lines.length + 1,
       name: institutName,
-      integrated: "",
-      actived: "",
-      curriculum: "",
-      waiting: "",
-      accepted: "",
-      extracurriculars: "",
-      vacant: "",
+      integrated: data.result.total_students,
+      actived: data.result.total_students_answered_professional_status,
+      curriculum: data.result.total_students_curriculum,
+      waiting:
+        data.result.total_companies_invites.received.waiting +
+        data.result.total_companies_invites.sent.waiting,
+      accepted:
+        data.result.total_companies_invites.received.accepted +
+        data.result.total_companies_invites.sent.accepted,
+      extracurriculars: data.result.total_attractions.total,
+      vacant: data.result.total_job_offers.total.total,
       workability: workabilityInput,
-      candidacy: "",
+      candidacy: institutSeed,
     };
 
     // setTasks((oldState) => [...oldState, newTask]);
@@ -70,13 +76,13 @@ export function TaskList() {
             onChange={(e) => setInstitutJson(e.target.value)}
             value={institutJson}
           />
-            <input
-              style={{ width: '120px' }}
-              type="text"
-              placeholder="Trabalhabilidade"
-              onChange={(e) => setWorkabilityInput(e.target.value)}
-              value={workabilityInput}
-            />
+          <input
+            style={{ width: '120px' }}
+            type="text"
+            placeholder="Trabalhabilidade"
+            onChange={(e) => setWorkabilityInput(e.target.value)}
+            value={workabilityInput}
+          />
           <input
             style={{ width: '100px' }}
             type="text"

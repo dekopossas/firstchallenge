@@ -22,11 +22,14 @@ export function TaskList() {
   const [lines, setLines] = useState<Line[]>([]);
   const [institutName, setInstitutName] = useState('');
   const [institutJson, setInstitutJson] = useState('');
-  const [workabilityInput, setWorkabilityInput] = useState('0');
-  const [institutSeed, setInstitutSeed] = useState('0');
+  const [workabilityInput, setWorkabilityInput] = useState('');
+  const [institutSeed, setInstitutSeed] = useState('');
 
   function handleCreateNew() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
+
+    if (!institutJson) return;
+
     const data = JSON.parse(institutJson);
 
     const newLine = {
@@ -53,6 +56,8 @@ export function TaskList() {
     setWorkabilityInput('');
     setInstitutSeed('');
   }
+
+  console.log(lines);
 
   function handleRemoveLine(id: number) {
     // Remova uma task da listagem pelo ID
@@ -114,41 +119,25 @@ export function TaskList() {
             <th>Candidaturas</th>
             <th>Actions</th>
           </tr>
-          {/* {instituteTable.map((institute) => {})} */}
-          <tr>
-            <td>UVA</td>
-            <td>12345125</td>
-            <td>123</td>
-            <td>432</td>
-            <td>151</td>
-            <td>6123</td>
-            <td>43</td>
-            <td>12</td>
-            <td>4321</td>
-            <td>43</td>
-            <td>
-              <button> \/ </button>
-              <button> X </button>
-              <button> /\ </button>
-            </td>
-          </tr>
-          <tr>
-            <td>UVA</td>
-            <td>12345125</td>
-            <td>123</td>
-            <td>432</td>
-            <td>151</td>
-            <td>6123</td>
-            <td>43</td>
-            <td>12</td>
-            <td>4321</td>
-            <td>43</td>
-            <td>
-              <button> \/ </button>
-              <button> X </button>
-              <button> /\ </button>
-            </td>
-          </tr>
+          {lines.map((line) => {
+            <tr key={line.id}>
+              <td>{line.name}</td>
+              <td>{line.integrated}</td>
+              <td>{line.actived}</td>
+              <td>{line.curriculum}</td>
+              <td>{line.waiting}</td>
+              <td>{line.accepted}</td>
+              <td>{line.extracurriculars}</td>
+              <td>{line.vacant}</td>
+              <td>{line.workability}</td>
+              <td>{line.candidacy}</td>
+              <td>
+                <button> \/ </button>
+                <button onClick={() => handleRemoveLine(line.id)}> X </button>
+                <button> /\ </button>
+              </td>
+            </tr>;
+          })}
         </table>
       </main>
     </section>

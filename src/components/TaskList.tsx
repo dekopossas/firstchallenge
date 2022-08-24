@@ -54,7 +54,7 @@ export function TaskList() {
     setInstitutSeed('');
   }
 
-  function handleRemoveTask(id: number) {
+  function handleRemoveLine(id: number) {
     // Remova uma task da listagem pelo ID
     const currentArr = lines.filter((line) => line.id !== id);
     setLines(currentArr);

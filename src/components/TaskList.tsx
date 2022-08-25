@@ -19,7 +19,34 @@ interface Line {
 }
 
 export function TaskList() {
-  const [lines, setLines] = useState<Line[]>([]);
+  const [lines, setLines] = useState<Line[]>([
+    {
+      id: 1,
+      name: 'fecap',
+      integrated: '8530',
+      actived: '1539',
+      curriculum: '611',
+      waiting: '7',
+      accepted: '248',
+      extracurriculars: '36',
+      vacant: '746',
+      workability: '34.2',
+      candidacy: '0',
+    },
+    {
+      id: 2,
+      name: 'fecap',
+      integrated: '8530',
+      actived: '1539',
+      curriculum: '611',
+      waiting: '7',
+      accepted: '248',
+      extracurriculars: '36',
+      vacant: '746',
+      workability: '78',
+      candidacy: '0',
+    },
+  ]);
   const [institutName, setInstitutName] = useState('');
   const [institutJson, setInstitutJson] = useState('');
   const [workabilityInput, setWorkabilityInput] = useState('');
@@ -119,7 +146,7 @@ export function TaskList() {
             <th>Candidaturas</th>
             <th>Actions</th>
           </tr>
-          {lines.map((line) => {
+          {lines.map((line) => (
             <tr key={line.id}>
               <td>{line.name}</td>
               <td>{line.integrated}</td>
@@ -136,8 +163,8 @@ export function TaskList() {
                 <button onClick={() => handleRemoveLine(line.id)}> X </button>
                 <button> /\ </button>
               </td>
-            </tr>;
-          })}
+            </tr>
+          ))}
         </table>
       </main>
     </section>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import '../styles/tasklist.scss';
 
-import { FiTrash, FiCheckSquare } from 'react-icons/fi';
+import { FiCheckSquare } from 'react-icons/fi';
 
 interface Line {
   id: number;
@@ -56,8 +56,6 @@ export function TaskList() {
     setWorkabilityInput('');
     setInstitutSeed('');
   }
-
-  console.log(lines);
 
   function handleRemoveLine(id: number) {
     // Remova uma task da listagem pelo ID

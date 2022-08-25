@@ -19,34 +19,7 @@ interface Line {
 }
 
 export function TaskList() {
-  const [lines, setLines] = useState<Line[]>([
-    {
-      id: 1,
-      name: 'fecap',
-      integrated: '8530',
-      actived: '1539',
-      curriculum: '611',
-      waiting: '7',
-      accepted: '248',
-      extracurriculars: '36',
-      vacant: '746',
-      workability: '34.2',
-      candidacy: '0',
-    },
-    {
-      id: 2,
-      name: 'fecap',
-      integrated: '8530',
-      actived: '1539',
-      curriculum: '611',
-      waiting: '7',
-      accepted: '248',
-      extracurriculars: '36',
-      vacant: '746',
-      workability: '78',
-      candidacy: '0',
-    },
-  ]);
+  const [lines, setLines] = useState<Line[]>([]);
   const [institutName, setInstitutName] = useState('');
   const [institutJson, setInstitutJson] = useState('');
   const [workabilityInput, setWorkabilityInput] = useState('');

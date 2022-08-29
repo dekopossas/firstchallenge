@@ -130,9 +130,7 @@ export function TaskList() {
               <td>{line.workability}</td>
               <td>{line.candidacy}</td>
               <td>
-                <button> \/ </button>
                 <button onClick={() => handleRemoveLine(line.id)}> X </button>
-                <button> /\ </button>
               </td>
             </tr>
           ))}

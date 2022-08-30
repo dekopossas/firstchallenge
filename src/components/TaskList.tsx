@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import '../styles/tasklist.scss';
 
 import { FiCheckSquare } from 'react-icons/fi';
+import api from '../services/api';
 
 interface Line {
   id: number;
@@ -24,8 +25,6 @@ export function TaskList() {
   const [institutJson, setInstitutJson] = useState('');
   const [workabilityInput, setWorkabilityInput] = useState('');
   const [institutSeed, setInstitutSeed] = useState('');
-
-  console.log(lines);
 
   function handleCreateNew() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
@@ -64,6 +63,15 @@ export function TaskList() {
     const currentArr = lines.filter((line) => line.id !== id);
     setLines(currentArr);
   }
+
+  // const loadData = async () => {
+  //   const response = await api.get('/stays')
+  //   console.log('corno');
+  // };
+
+  useEffect(() => {
+    console.log("corno")
+  },[])
 
   return (
     <section className="task-list container">

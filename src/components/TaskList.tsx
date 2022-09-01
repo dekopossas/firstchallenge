@@ -64,10 +64,10 @@ export function TaskList() {
     setLines(currentArr);
   }
 
-  // const loadData = async () => {
-  //   const response = await api.get('/stays')
-  //   console.log('corno');
-  // };
+  const loadData = async () => {
+    const response = await api.get('/stays')
+    console.log('corno');
+  };
 
   useEffect(() => {
     console.log("corno")
